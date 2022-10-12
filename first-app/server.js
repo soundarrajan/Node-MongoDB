@@ -10,5 +10,5 @@ app.get('/about',(request,response) =>{
     response.send('hi this is ');
 })
 app.listen(port,() => {
-  console.log("server started");
+  console.log("server sbtarted");
 });
