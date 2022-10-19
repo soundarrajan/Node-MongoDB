@@ -1,9 +1,14 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const json = {name:'test'}
 app.get('/',(request,response) =>{
     //console.log('response');
-    response.send('hiio');
+    response.write("kkkk");
+    response.write("kkkk");
+    //response.json(json);
+    response.send();
+   
 })
 // app.get('/about',(request,response) =>{
 //     //console.log(response)

@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
+//app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'))
 //app.use(bodyParser.urlencoded({extended:true})); // for html form
 app.use(bodyParser.urlencoded({extended:true}));  // for postman
 app.use(bodyParser.json())

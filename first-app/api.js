@@ -34,6 +34,10 @@ response.on("data", function (data) {
 response.on("end", function () {
     var jsonParse = JSON.parse(newsItems);
     console.log(jsonParse);
+    // res.write("test");
+    //res.write("test");
+    res.send(jsonParse);
+    //res.send();
 });
 
 }).on('error', (e) => {
@@ -42,7 +46,9 @@ response.on("end", function () {
  
  
  console.log("started");
- res.send("response");
+ //res.send("responsed");
+ //res.send(jsonParse);
+ //res.send("response");
 })
 
 app.listen(3000);
