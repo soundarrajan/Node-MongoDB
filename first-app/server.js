@@ -4,7 +4,7 @@ const port = 3000;
 const json = {name:'test'}
 app.get('/',(request,response) =>{
     //console.log('response');
-    response.write("kkkk");
+    response.write("kkksk");
     response.write("kkkk");
     //response.json(json);
     response.send();
