@@ -1,0 +1,115 @@
+REQUEST METHODS::::::
+
+GET,HEAD,POST,
+new methods - PUT,DELETE,CONNECT,OPTIONS,TRACE.
+
+app.get('/',(request,response) =>{
+    //console.log(response)
+    response.send('hi');
+})
+------
+GET requests should only retrieve data and should have no other effect.
+--------------------------------------
+Route parameters:
+
+Route path: /users/:userId/books/:bookId
+Request URL: http://localhost:3000/users/34/books/8989
+req.params: { "userId": "34", "bookId": "8989" }
+
+app.get('/users/:userId/books/:bookId', (req, res) => {
+  res.send(req.params)
+})
+----------------------------------
+More than one callback function can handle a route (make sure you specify the next object). For example:
+
+app.get('/example/b', (req, res, next) => {
+  console.log('the response will be sent by the next function ...')
+  next()
+}, (req, res) => {
+  res.send('Hello from B!')
+})
+
+---------------------------
+An array of callback functions can handle a route. For example:
+
+const cb0 = function (req, res, next) {
+  console.log('CB0')
+  next()
+}
+
+const cb1 = function (req, res, next) {
+  console.log('CB1')
+  next()
+}
+
+const cb2 = function (req, res) {
+  res.send('Hello from C!')
+}
+
+app.get('/example/c', [cb0, cb1, cb2])
+--------------------------
+A combination of independent functions and arrays of functions can handle a route. For example:
+
+const cb0 = function (req, res, next) {
+  console.log('CB0')
+  next()
+}
+
+const cb1 = function (req, res, next) {
+  console.log('CB1')
+  next()
+}
+
+app.get('/example/d', [cb0, cb1], (req, res, next) => {
+  console.log('the response will be sent by the next function ...')
+  next()
+}, (req, res) => {
+  res.send('Hello from D!')
+})
+-------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+
+RESPONSE METHODS:
+
+The methods on the response object (res) in the following table can send a response to the client, 
+and terminate the request-response cycle. 
+
+
+Method	------   Description
+res.download()	Prompt a file to be downloaded.
+res.end()	End the response process.
+res.json()	Send a JSON response.
+res.jsonp()	Send a JSON response with JSONP support.
+res.redirect()	Redirect a request.
+res.render()	Render a view template.
+res.send()	Send a response of various types.
+res.sendFile()	Send a file as an octet stream.
+res.sendStatus()	Set the response status code and send its string representation as the response body.
+---------------------
+Chainable Route Handlers:::
+
+app.route()--
+
+app.route('/book')
+  .get((req, res) => {
+    res.send('Get a random book')
+  })
+  .post((req, res) => {
+    res.send('Add a book')
+  })
+  .put((req, res) => {
+    res.send('Update the book')
+  })
+------------------------- 
+SALTING AND HASHING
+
+Hashing refers to taking plain text and putting it through a hash algorithm. A hash algorithm takes input text of any size 
+and returns a string of fixed length. No matter the size of string/text it always returns the same length string.
+
+Salting is nothing but adding a random string to your password hash. Now when you use salt, 
+it automatically includes in your hashed password. So here for the same password overall hashed value is different and it's not predictable.
+
+add bcrypt to our application which is actually used for cryptography purposes in NodeJS and mainly used to hash passwords.
+
+https://blog.devgenius.io/salt-and-hash-password-using-bcrypt-in-nodejs-3df1b7d23705
+------------------------------------------------------------------
