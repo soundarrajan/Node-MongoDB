@@ -8,7 +8,7 @@ const port = 3000;
 app.use(express.static('public'))
 //app.use(bodyParser.urlencoded({extended:true})); // for html form
 app.use(bodyParser.urlencoded({extended:true}));  // for postman
-app.use(bodyParser.json())
+app.use(bodyParser.json()) // to get json req
 app.get('/',(req,res) =>{
   //res.send('hiiii');
   //console.log(__dirname);
