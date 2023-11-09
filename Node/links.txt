@@ -1,0 +1,9 @@
+mongoose:
+https://www.youtube.com/watch?v=686pbLyBbGI&list=PLA7e3zmT6XQU_YoMn_Z9vpAOskP9xq57s&index=9
+---
+2
+net ninga
+
+mongodb,mongoose
+
+---

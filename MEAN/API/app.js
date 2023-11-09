@@ -18,6 +18,35 @@ dataSchema.find()
 .catch((err)=>{console.log("error")})
 });
 
+app.post('/book',(req,res) => {
+// save a document in collection
+    // const book = new dataSchema(req.body);
+    // book.save().then((book) => {
+    //     res.status(201).send(book)
+    //     .catch((error) => {
+    //         res.status(400).send(error);
+    //     })
+    // })
+// another method to save doc
+// dataSchema.create(req.body)
+// .then((book) => {
+//     res.status(201).send(book)
+// })
+// .catch((error) => {
+//     res.status(400).send(error.message);
+// })
+
+// insert many method to save doc
+dataSchema.insertMany(req.body)
+.then((book) => {
+    res.status(201).send(book)
+})
+.catch((error) => {
+    res.status(400).send(error.message);
+})
+
+})
+
 app.listen(port,(req,res)=>{
     console.log("its running");
 })

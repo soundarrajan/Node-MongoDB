@@ -5,6 +5,13 @@ const fruitSchema = new mongoose.Schema({
     rating: Number
 });
 
-const FruitModel = mongoose.model('FruitCollection',fruitSchema);
+const movieSchema = new mongoose.Schema({
+    name: String,
+    rating: Number
+});
+//const FruitModel = mongoose.model('FruitCollection',fruitSchema);
 
-module.exports = FruitModel;
+const movieModel = mongoose.model('MovieCollection',movieSchema);
+
+//module.exports = FruitModel;
+module.exports = movieModel;
