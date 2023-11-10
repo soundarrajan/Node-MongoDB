@@ -47,6 +47,66 @@ dataSchema.insertMany(req.body)
 
 })
 
+// get all data
+ 
+app.get('/all',(req,res) => {
+dataSchema.find({})
+.then((book) => {
+    res.status(201).send(book);
+})
+.catch((error) => {
+    res.status(400).send(error.message);
+})
+
+})
+
+// get specific data
+
+app.get('/all/:id',(req,res) => {
+    dataSchema.findById(req.params.id)
+    .then((book) => {
+        res.status(201).send(book);
+    })
+    .catch((error) => {
+        res.status(400).send(error.message);
+    })
+    
+    })
+
+// update
+
+app.patch('/all/:id',(req,res) => {
+    dataSchema.findByIdAndUpdate(req.params.id,req.body,{new:true}) // new:true - give the updated version of data
+    .then((book) => {
+        res.status(201).send(book);
+    })
+    .catch((error) => {
+        res.status(400).send(error.message);
+    })
+
+    dataSchema.updateOne({_id:req.params.id},req.body) // new:true - give the updated version of data
+    .then((book) => {
+        res.status(201).send(book);
+    })
+    .catch((error) => {
+        res.status(400).send(error.message);
+    })
+    
+    })
+
+    // delete
+
+    
+app.delete('/all/:id',(req,res) => {
+  dataSchema.findByIdAndDelete(req.params.id)
+  .then((book) => {
+    res.status(201).send(book);
+})
+.catch((error) => {
+    res.status(400).send(error.message);
+})
+})
+
 app.listen(port,(req,res)=>{
     console.log("its running");
 })
