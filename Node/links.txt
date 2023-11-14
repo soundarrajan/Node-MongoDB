@@ -1,5 +1,15 @@
 mongoose:
 https://www.youtube.com/watch?v=686pbLyBbGI&list=PLA7e3zmT6XQU_YoMn_Z9vpAOskP9xq57s&index=9
+
+rest api:
+https://www.youtube.com/watch?v=AtVh_czC9n4&list=PLA7e3zmT6XQXS5Jl_6yIGWZTtOaXpytvV
+
+MEAN:
+https://www.youtube.com/watch?v=0hs2wgop8zc&list=PLA7e3zmT6XQUtF8RAvbxPlKks0PiyaggU
+
+firebase:
+net ninja
+
 ---
 2
 net ninga

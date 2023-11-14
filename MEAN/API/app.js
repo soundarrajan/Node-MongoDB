@@ -107,6 +107,20 @@ app.delete('/all/:id',(req,res) => {
 })
 })
 
+// async await
+app.get('/all', async(req,res) => {
+    
+   try {
+    const alldata = await dataSchema.find({});
+        res.status(201).send(book);
+    }
+    catch(error){
+        res.status(400).send(error.message);
+    }
+    
+    })
+
+
 app.listen(port,(req,res)=>{
     console.log("its running");
 })
